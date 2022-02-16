@@ -1,6 +1,19 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body{
     font-family: 'Roboto', sans-serif;
+}
+li{
+    list-style-type: none;
+    margin: 10px 0px;
+}
+li p{
+    display: inline;
+    
+}
+li input{
+    border: none;
+    background-color: #ADC5CF;
+    border-radius: 5px;
 }
