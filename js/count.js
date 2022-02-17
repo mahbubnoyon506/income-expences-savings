@@ -1,75 +1,80 @@
-document.getElementById('calculation').addEventListener('click', function(){
-    const incomeInput= document.getElementById('income-input');
-    const income = incomeInput.value;
-    const incomeValue = parseFloat(income);
 
-    const foodInput = document.getElementById('food-input');
-    const foodCost = foodInput.value;
-    const foodCostValue = parseFloat(foodCost);
-
-    const rentInput = document.getElementById('rent-input');
-    const rentCost = rentInput.value;
-    const rentCostValue = parseFloat(rentCost);
-
-    const clothesInput = document.getElementById('clothes-input')
-    const clothesCost = clothesInput.value;
-    const clothesCostValue = parseFloat(clothesCost);
-
-    const countingExpense = document.getElementById('total-expense');
-    const expense = countingExpense.innerText;
-    countingExpense.innerText = parseFloat(expense);
-    countingExpense.innerText = foodCostValue + rentCostValue + clothesCostValue;
+/////////////Income Function///////////
+function incomeExpense(cash){
+   const inputTex= document.getElementById(cash + '-input');
+   const input = inputTex.value;
+   const inputValue = parseFloat(input);
+   return inputValue;
+}
 
 
-    const balanceCounting = document.getElementById('balance');
-    const balanceText = balanceCounting.innerText;
-    balanceCounting.innerText = parseFloat(balanceText);
-    balanceCounting.innerText = incomeValue - countingExpense.innerText;
-      
-})
+///////Expenses Function////////////
+ function expenseCount(){
+   const countingExpense = document.getElementById('total-expense');
+   const expense = countingExpense.innerText;
+   countingExpense.innerText = parseFloat(expense);
+   countingExpense.innerText = incomeExpense('food') + incomeExpense('rent') + incomeExpense('clothes');
+   const getExpense = countingExpense.innerText;
+   return getExpense;
+ }
 
-document.getElementById('saving-calculation').addEventListener('click', function(){
+
+///////Balance Counting Function////////////
+ function balanceCount(){
+   const balanceCounting = document.getElementById('balance');
+   const balanceText = balanceCounting.innerText;
+   balanceCounting.innerText = parseFloat(balanceText);
+   balanceCounting.innerText = incomeExpense('income') - expenseCount();
+   const getBalance = balanceCounting.innerText;
+   return getBalance;
+ }
+
+
+///////Saving Counting Function/////////////
+ function savingCounting(){
    const savingInput = document.getElementById('saving-input');
    const savingValue = savingInput.value;
    const saving = parseFloat(savingValue);
-
-   const incomeInput= document.getElementById('income-input'); //duplicate
-   const income = incomeInput.value;
-   const incomeValue = parseFloat(income);
-
-   const initialSave = incomeValue * saving;
+   const initialSave = incomeExpense('income') * saving;
    const totalSaving = initialSave / 100;
-
    const savingText = document.getElementById('save-amount');
    const savingCalculate = savingText.innerText;
    savingText.innerText = totalSaving;
-   
-////////////////// duplicate
-const foodInput = document.getElementById('food-input');
-const foodCost = foodInput.value;
-const foodCostValue = parseFloat(foodCost);
-
-const rentInput = document.getElementById('rent-input');
-const rentCost = rentInput.value;
-const rentCostValue = parseFloat(rentCost);
-
-const clothesInput = document.getElementById('clothes-input')
-const clothesCost = clothesInput.value;
-const clothesCostValue = parseFloat(clothesCost);
-
-const countingExpense = document.getElementById('total-expense');
-const expense = countingExpense.innerText;
-countingExpense.innerText = parseFloat(expense);
-countingExpense.innerText = foodCostValue + rentCostValue + clothesCostValue;
-   const balanceCounting = document.getElementById('balance'); //duplicate
-   const balanceText = balanceCounting.innerText;
-   balanceCounting.innerText = parseFloat(balanceText);
-   balanceCounting.innerText = incomeValue - countingExpense.innerText;
-
+   const getSaving = savingText.innerText;
+   return getSaving;
+ }
+////////Remain Balance Counting Function///////////////////
+ function remainBalanceCount(){
    const remainBalanceCost = document.getElementById('remain-balance');
    const remainBalance = remainBalanceCost.innerText;
-   remainBalanceCost.innerText = balanceCounting.innerText - savingText.innerText;
-   console.log(remainBalanceCost.innerText);
+   remainBalanceCost.innerText = balanceCount() - savingCounting();
+   const getRamain = remainBalanceCost.innerText;
+   return getRamain;   
+ }
+
+
+////Income And Expence Codes/////////////////
+document.getElementById('calculation').addEventListener('click', function(){
+
+   const incomeValue = incomeExpense('income');
+
+   const foodCostValue = incomeExpense('food');
+
+   const rentCostValue = incomeExpense('rent');
+
+   const clothesCostValue = incomeExpense('clothes');
+
+   const expenseResult = expenseCount();
+
+   const balanceResult = balanceCount();    
+})
+
+////////Savings Codes//////////////////
+document.getElementById('saving-calculation').addEventListener('click', function(){
+
+   const savingResult = savingCounting();
+   
+   const getRemainResult = remainBalanceCount();
 })
 
 
