@@ -66,15 +66,29 @@ document.getElementById('calculation').addEventListener('click', function(){
 
    const expenseResult = expenseCount();
 
-   const balanceResult = balanceCount();    
+   if(expenseResult > incomeValue){
+      console.log('Choose a lower number')
+   }else{
+      const balanceResult = balanceCount(); 
+   }
+
+   //  const balanceResult = balanceCount();    
 })
 
 ////////Savings Codes//////////////////
 document.getElementById('saving-calculation').addEventListener('click', function(){
 
+   const balanceResult = balanceCount();
    const savingResult = savingCounting();
-   
-   const getRemainResult = remainBalanceCount();
+
+   if(savingResult > balanceResult){
+      document.getElementById('saving-error').style.display='block';
+   }
+   else{
+      const getRemainResult = remainBalanceCount();
+      document.getElementById('saving-error').style.display='none';
+   }
+
 })
 
 
