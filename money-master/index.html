@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Income | Expense | Savings</title>
+    <!-- bootstrap-css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- css-link -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <header>
+        <h1 class="text-center text-info py-4">Income Expense and Savings</h1>
+    </header>
+    <main>
+        <div class="row m-4 align-items-between">
+            <div class="col-sm-7">
+                <div><img class="img-fluid " src="images\banner.jpg" alt=""></div>
+            </div>
+            <div class="col-sm-5" style="background-color: #FCF7FF">
+                <div>
+                    <h3 class="pt-5 text-center">Income</h3>
+                    <ul>
+                        <li class="d-grid col-10 mx-auto"><p >Income:</p><input type="text" name="" id="income-input"></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="pt-5 text-center">Expenses</h3>
+                    <ul>
+                        <li class="d-grid col-10 mx-auto"> <p >Food:</p> <input type="text" name="" id="food-input"></li>
+                        <li class="d-grid col-10 mx-auto"> <p>Rent:</p> <input type="text" name="" id="rent-input"></li>
+                        <li class="d-grid col-10 mx-auto"> <p>Clothes:</p> <input type="text" name="" id="clothes-input"></li>
+                    </ul>
+                    <button id="calculation" class="border-0 rounded bg-info d-grid py-2 px-4 col-4 mx-auto">Calculate</button>
+                    <p class="text-center fs-5 my-4">Totat Expense: <span id="total-expense">00</span> </p>
+                    <p class="text-center fs-5 my-4">Balance: <span id="balance">00</span> </p>
+                </div>
+                <div>
+                    <ul>
+                        <li><p class="d-inline">Save:</p> <input type="text" name="" id="saving-input"><span>%</span> <button id="saving-calculation" class="border-0 rounded bg-info py-1 px-4 my-2">Save</button> </li>
+                    </ul>
+                    <p class="text-center fs-5 my-4">Saving Amount: <span id="save-amount">00</span></p>
+                    <p class="text-center fs-5 my-4">Ramaining Balance: <span id="remain-balance">00</span></p>
+
+    
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- bootstrap-js-link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js\count.js"></script>
+</body>
+</html>
